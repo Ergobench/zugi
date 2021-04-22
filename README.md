@@ -10,7 +10,7 @@ O aumento do angulo de visão melhora a coordenação motora do movimento corpor
 A postura de lótus na poltrona ergonomica evidencia a geometria do tetraedro corporal. Pernas e braços se depositantam naturalmente em angulos de base triangular dando à nova ergonomia um design à partir das medidas corporais na postura de lótus. Naturalmente estamos falando de medida ouro, o pi matemático.
 Dendro deste estudo, o comportamento humano entra em contato com seu centro vital, onde reside a força de cada ser humano.
 A inspiração para a criação deste móvel veio das práticas de postura de lótus de Patanjali do Yoga.
-Aquele que habita as cidades dificilmente conquista uma postura erete. Uma das posturas com grande grau de dificuldade de obtenção de hábito diário devido as culturas e ambientes urbanos no ocidente. 
+Aquele que habita as cidades dificilmente conquista uma postura ereta. Uma das posturas de grande grau de dificuldade na obtenção do hábito diário devido as culturas ergonomicas e ambientes urbanos no ocidente. 
 Ergobench by André criou ZUGI para entregar o mínimo espaço com o máximo de conforto para executar a difícil mas excelente postura de lótus a fim de dar maior permanencia ou stillness durante a meditação do samadhi.
 Excelente para corrigir dores e criar movimentos de espriguiçamento em angulos diagonais, torcidos e extendidos para a abertura peitoral, garganta e pescoço, e o principal e fundamental sacro-ilíaco que sustenta desde o crânio até as partes baixas do abdome. 
 O sacro-ilíaco sente todos as forças de cima e de baixo, da cabeça/mandíbula aos pés e dedos, mãos e braços, genitais e ânus.
