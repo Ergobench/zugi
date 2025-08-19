@@ -1,0 +1,197 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { Brain, Bone, Grid, Network, Hammer, Shield, Chair, Activity, Cpu, Rocket } from "lucide-react";
+
+// Simple flow box component
+const Box = ({ title, subtitle, Icon }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 12 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.4 }}
+    className="bg-white/90 backdrop-blur p-4 rounded-2xl shadow-md border border-gray-100 w-full"
+  >
+    <div className="flex items-start gap-3">
+      {Icon && <Icon className="w-5 h-5 mt-0.5" />}
+      <div>
+        <h3 className="text-sm font-semibold leading-tight">{title}</h3>
+        {subtitle && (
+          <p className="text-xs text-gray-600 mt-1 leading-snug">{subtitle}</p>
+        )}
+      </div>
+    </div>
+  </motion.div>
+);
+
+const Arrow = ({ className = "" }) => (
+  <svg className={`w-6 h-6 ${className}`} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3 12h18m0 0l-4-4m4 4l-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
+export default function EigenLatticeWorkflow() {
+  return (
+    <div className="min-h-screen w-full bg-gradient-to-br from-slate-50 via-white to-indigo-50 text-slate-900">
+      <div className="max-w-7xl mx-auto p-6 md:p-10">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+          <div>
+            <h1 className="text-2xl md:text-3xl font-bold">EigenLattice Workflow</h1>
+            <p className="text-sm text-gray-600">Bio-inspired eigenmode lattices → printable ultralight structures for ergonomics and space protection</p>
+          </div>
+          <div className="flex items-center gap-2 text-xs text-gray-600">
+            <Rocket className="w-4 h-4" />
+            <span>Ergobench × Space</span>
+          </div>
+        </div>
+
+        {/* Grid layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Left column: Data → Eigenmodes */}
+          <div className="space-y-3">
+            <Box
+              Icon={Bone}
+              title="Microscopic Bone Structures"
+              subtitle="Micro-CT / histology of vertebrae & trabecular networks; voxelized density & orientation maps"
+            />
+            <div className="flex items-center justify-center text-gray-400">
+              <Arrow />
+            </div>
+            <Box
+              Icon={Cpu}
+              title="Image→Tensor Pipeline"
+              subtitle="Segmentation → structure tensor → local stiffness (C(x)) and anisotropy fields; meshing (voxel → lattice cell)"
+            />
+            <div className="flex items-center justify-center text-gray-400">
+              <Arrow />
+            </div>
+            <Box
+              Icon={Activity}
+              title="Eigen Decomposition"
+              subtitle="Kϕ = λMϕ → eigenvalues (λ) & eigenvectors (ϕ) of modal compliance; extract load-bearing eigenmodes"
+            />
+            <div className="flex items-center justify-center text-gray-400">
+              <Arrow />
+            </div>
+            <Box
+              Icon={Brain}
+              title="Mode Selection & Feature Learning"
+              subtitle="Pick modes by target frequency/stiffness; learn mode-to-cell rules (PCA/AE/GNN) for generative scaling"
+            />
+          </div>
+
+          {/* Middle column: Synthesis → Validation */}
+          <div className="space-y-3">
+            <Box
+              Icon={Grid}
+              title="EigenLattice Synthesis"
+              subtitle="Map eigenvectors → anisotropic unit cells; graded density; multi-axis compliance; mode-tuned damping"
+            />
+            <div className="flex items-center justify-center text-gray-400">
+              <Arrow />
+            </div>
+            <Box
+              Icon={Network}
+              title="Topology Optimization"
+              subtitle="Compliance minimization under ergonomic constraints (pressure, posture cycles); safety factors"
+            />
+            <div className="flex items-center justify-center text-gray-400">
+              <Arrow />
+            </div>
+            <Box
+              Icon={Shield}
+              title="Simulation & Verification"
+              subtitle="FEA (static/modal/impact); fatigue life; thermal/vacuum; micrometeoroid proxy; human comfort metrics"
+            />
+            <div className="flex items-center justify-center text-gray-400">
+              <Arrow />
+            </div>
+            <Box
+              Icon={Hammer}
+              title="AM Print Pipeline"
+              subtitle="Slicing, support strategy, multi-material raster; QA with CT/ultrasound; coupon tests → iterate"
+            />
+          </div>
+
+          {/* Right column: Applications & KPIs */}
+          <div className="space-y-3">
+            <Box
+              Icon={Chair}
+              title="Applications"
+              subtitle={
+                <>
+                  <ul className="list-disc ml-5 mt-1 space-y-1">
+                    <li><span className="font-medium">Ergonomic chair:</span> pressure-channeling seat/back with lumbar eigen-damping</li>
+                    <li><span className="font-medium">Exoskeleton:</span> load path mimicry of spine/hip; compliant assistance</li>
+                    <li><span className="font-medium">Protection suit:</span> multi-layer eigenlattices tuned to impact & vibration</li>
+                  </ul>
+                </>
+              }
+            />
+
+            <Box
+              Icon={Shield}
+              title="KPIs (optimize)"
+              subtitle={
+                <>
+                  <ul className="list-disc ml-5 mt-1 space-y-1">
+                    <li>Strength-to-weight ≥ target (e.g., >30 kN·m/kg)</li>
+                    <li>Pressure distribution: peak < 30% baseline</li>
+                    <li>Modal spacing: avoid human-discomfort bands (4–8 Hz)</li>
+                    <li>Fatigue life > mission cycles (≥10⁶)</li>
+                  </ul>
+                </>
+              }
+            />
+
+            <Box
+              Icon={Network}
+              title="Data Schema (minimal)"
+              subtitle={
+                <>
+                  <ul className="list-disc ml-5 mt-1 space-y-1">
+                    <li>Specimen → scan → tensor field → (K, M)</li>
+                    <li>Modes: {`{λ, ϕ, freq, localization}`}</li>
+                    <li>Lattice cell: {`{type, strut Ø, grad, orientation}`}</li>
+                    <li>Process: {`{material, layer, temp, QA}`}</li>
+                  </ul>
+                </>
+              }
+            />
+
+            <Box
+              Icon={Shield}
+              title="Risks & Controls"
+              subtitle={
+                <>
+                  <ul className="list-disc ml-5 mt-1 space-y-1">
+                    <li>Overfitting to specific anatomy → use diverse datasets</li>
+                    <li>Print defects → in-situ monitoring + CT QA</li>
+                    <li>Resonance with gait/vehicle → mode placement constraints</li>
+                    <li>Regulatory: ISO 10993/ISO 10328/ASTM F42 compliance</li>
+                  </ul>
+                </>
+              }
+            />
+          </div>
+        </div>
+
+        {/* Legend / footer */}
+        <div className="mt-8 grid md:grid-cols-3 gap-4 text-xs text-gray-600">
+          <div className="bg-white/80 rounded-2xl p-4 shadow border border-gray-100">
+            <h4 className="font-semibold text-slate-800 mb-1">Design Objective</h4>
+            <p>Translate bone micro-architectural eigenmodes into manufacturable lattices that balance comfort, stability, and protection under mass constraints.</p>
+          </div>
+          <div className="bg-white/80 rounded-2xl p-4 shadow border border-gray-100">
+            <h4 className="font-semibold text-slate-800 mb-1">Experiment Loop</h4>
+            <p>Specimen → modes → lattice → print → test → update mode-selection/lattice rules (closed-loop learning).</p>
+          </div>
+          <div className="bg-white/80 rounded-2xl p-4 shadow border border-gray-100">
+            <h4 className="font-semibold text-slate-800 mb-1">Readiness Roadmap</h4>
+            <p>TRL 2–3 (modeling) → TRL 4–5 (prototype coupons) → TRL 6–7 (component-level chair/exo/suit) → TRL 8 (pilot production).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
